@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Lato:wght@300;400;700&display=swap");
+
+/* дэфолтные стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #000000;
+  font-size: 20px;
+
+  background-image: url("./photo/131038-abstract-bright-grey-polygon-background-graphic.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* hero */
+.container {
+  margin: 0 auto;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+#user_list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* карточка */
+.user_card {
+  display: flex;
+  align-items: center;
+  width: 440px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+/*? ----animation for card---- */
+
+.user_inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  color: #3e3939;
+  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.user_card:hover .user_inner {
+  transform: rotateY(180deg);
+}
+
+.user_front,
+.user_back {
+  position: absolute;
+  width: 90%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.user_front {
+  display: flex;
+  align-items: center;
+}
+
+.user_back {
+  transform: rotateY(180deg);
+}
+
+/* ? */
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.name {
+  text-transform: uppercase;
+}
+
+.fullName {
+  margin: 0;
+  font-size: 16px;
+}
+
+.email {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.phone {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* */
+
+/** кнопки фильтра и сорта **/
+
+.btns *,
+.sort {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #222;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s linear;
+  text-transform: uppercase;
+}
+
+.btns *:hover {
+  background-color: #fff5b0;
+  color: #222;
+}
+
+.sort {
+  margin-top: 10px;
+  background-color: #fff5b0;
+  color: #222;
+}
+
+.sort:hover {
+  background-color: #222;
+  color: #fff5b0;
+}
+
+/**/
+
+/** адаптивка **/
+
+@media (max-width: 1390px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-size: 26px;
+  }
+  .btns button,
+  .sort {
+    padding: 7px;
+  }
+
+  .user_card {
+    width: 350px;
+    height: 160px;
+  }
+  .user_info {
+    gap: 0px;
+    font-size: 16px;
+  }
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 390px) {
+  .user_card {
+    width: 300px;
+    height: 160px;
+  }
+  .user_info {
+    width: 120px;
+    font-size: 12px;
+  }
+  .email {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .btns button,
+  .sort {
+    padding: 5px;
+  }
+  .sort {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
